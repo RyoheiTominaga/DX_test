@@ -22,6 +22,7 @@ Object::Object(){
 	X = 0;
 	Y = 0;
 	on = false;
+	o_n = 0;
 }
 void Object::MakeCube(int X,int Y) {
 	 //&p;
@@ -53,18 +54,21 @@ void Object::CircleMove() {
 		if (HitX()) {
 			if ((Y >= p.GetPY()) && (Y <= (p.GetPY() + SizeY_Cube))) {
 				plusX *= -1;
-				onRight = false;
+				//onRight = false;
+				operator1();
 			}
 			else if ((Y >= e.GetY() && Y <= (e.GetY() + SizeY_Cube))) {
 				plusX *= -1;
-				onRight = true;
+				//onRight = true;
+				operator2();
+				//operator--();
 			}
 			else {
-				if (onRight) {
+				if (o_n==1) {
 					e.operator++();
 					e.score++;
 				}
-				else {
+				else if(o_n==0) {
 					p.operator++();
 					p.score++;
 				}
@@ -82,11 +86,13 @@ void Object::CircleMove() {
 		
 		if (CheckHitKey(KEY_INPUT_SPACE) != 0) {
 			on = false;
-			if (onRight) {
+			if (o_n==0) {
+				o_n = 0;
 				plusX = 10 * -1;
 				plusY = 5;//Œã‚Åƒ‰ƒ“ƒ_ƒ€‚É‚·‚é
 			}
-			else {
+			else if(o_n==1){
+				o_n = 1;
 				plusX = 10;
 				plusY = 5;//Œã‚Åƒ‰ƒ“ƒ_ƒ€‚É‚·‚é
 			}

@@ -23,15 +23,3 @@ int Enemy::GetY() {
 void Enemy::GetScore(int X, int Y) {
 	DrawFormatString(X, Y, GetColor(255, 255, 255), "Enemy:%3d", score);
 }
-//void Player::GetPlayerPoint() {
-//	beforeX = X;
-//	beforeY = Y;
-//	GetMousePoint(&X, &Y);
-//	X = 0;
-//	if (Y > screen.Get_SizeY() - ob.SizeY) {
-//		Y = screen.Get_SizeY() - ob.SizeY;
-//	}
-//	if (Y < 0) {
-//		Y = 0;
-//	}
-//}

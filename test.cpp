@@ -31,7 +31,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		p.GetScore(200, 100);
 		e.GetScore(800, 100);
 		DrawFormatString(400, 300, GetColor(255, 255, 255), "E%3d,P%3d", e.score, p.score);
-		DrawFormatString(600, 300, GetColor(255, 255, 255), "onright:", ob.onRight);
+		DrawFormatString(600, 300, GetColor(255, 255, 255), "onright%3d:", ob.o_n);
 		ScreenFlip();//裏画面を表画面にコピー
 		// WaitKey();
 		flame++;
