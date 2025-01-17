@@ -28,15 +28,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		ob.MakeCube(e.GetX(),e.GetY());
 		ob.MakeCircle();
 		ob.CircleMove();
-		e.Move();
 		p.GetScore(200, 100);
 		e.GetScore(800, 100);
+		DrawFormatString(400, 300, GetColor(255, 255, 255), "E%3d,P%3d", e.score, p.score);
+		DrawFormatString(600, 300, GetColor(255, 255, 255), "onright:", ob.onRight);
 		ScreenFlip();//裏画面を表画面にコピー
 		// WaitKey();
 		flame++;
-		DrawFormatString(400,300, GetColor(255, 255, 255), "E%3d,P%3d",p.);
-
 		
+
+		//クラス分けしたらわけわからんくなった
 
 	}
 	DxLib_End();

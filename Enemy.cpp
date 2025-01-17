@@ -5,24 +5,19 @@
 #include"DxFunctionWin.h"
 #include"DxCompileConfig.h"
 #include"DxDataType.h"
-//#include"Object.h"
-//class Object ob;
+#include"Object.h"
+//class Object ob;//Ç»Ç∫Ç©ÉGÉâÅ[Ç™ãNÇ´ÇÈ
 Enemy::Enemy() {
 	X = 0;
 	Y = 0;
 	score = 0;
 }
-void Enemy::AddScore() {
-	score++;
-}
-void Enemy::Move() {
-	X = SCREEN_SIZE_X;
-	//Y = ob.Y;
-}
 int Enemy::GetX() {
+	X = SCREEN_SIZE_X;
 	return X;
 }
 int Enemy::GetY() {
+	//Y = ob.Y;
 	return Y;
 }
 void Enemy::GetScore(int X, int Y) {

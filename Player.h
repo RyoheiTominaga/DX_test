@@ -4,10 +4,14 @@ public:
 	Player();
 	int GetPX();//X
 	int GetPY();//Y
-	void AddScore();
+	Player& operator++() {
+		++score;
+		return *this;
+	}
 	void GetScore(int X,int Y);
+	int score;//ポイント
 private:
 	int X;
 	int Y;
-	int score;//ポイント
+	
 };

@@ -9,8 +9,10 @@
 #include"DxDataType.h"
 
 class Player p;
+
 class Enemy e;
 Object::Object(){
+	
 	onRight = false;
 	SizeX_Cube = 10;
 	SizeY_Cube = 100;
@@ -22,6 +24,7 @@ Object::Object(){
 	on = false;
 }
 void Object::MakeCube(int X,int Y) {
+	 //&p;
 	for (int i = 0;i <SizeX_Cube;++i) {
 		for (int j = 0;j < SizeY_Cube;++j) {
 			if (X == SCREEN_SIZE_X) {
@@ -57,18 +60,21 @@ void Object::CircleMove() {
 				onRight = true;
 			}
 			else {
+				if (onRight) {
+					e.operator++();
+					e.score++;
+				}
+				else {
+					p.operator++();
+					p.score++;
+				}
 				on = true;
 				DrawFormatString(20, 100, GetColor(255, 255, 255), "");
 				plusX = 0;
 				plusY = 0;
 				X = (SCREEN_SIZE_X / 2);
 				Y = (SCREEN_SIZE_Y / 2);
-				if (onRight) {
-					e.AddScore();
-				}
-				else {
-					p.AddScore();
-				}
+				
 			}
 		}
 	}

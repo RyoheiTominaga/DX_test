@@ -28,9 +28,7 @@ int Player::GetPY() {
 	}
 	return Y;
 };
-void Player::AddScore() {
-	score++;
-}
+
 void Player::GetScore(int X,int Y) {
 	DrawFormatString(X, Y, GetColor(255, 255, 255), "Player:%3d",score);
 }
