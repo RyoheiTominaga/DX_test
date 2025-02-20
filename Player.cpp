@@ -1,34 +1,53 @@
 #include "Player.h"
-#include "Object.h"
 #include"Define.h"
 #include"DxLib.h"
 #include"DxDataTypeWin.h"
 #include"DxFunctionWin.h"
 #include"DxCompileConfig.h"
 #include"DxDataType.h"
-class Object ob;
+
+//class Object *ob;
+//ëOï˚êÈåæÇ»Ç«å©íºÇµÇ∆ï◊ã≠ÇÃÇµíºÇµÇ™ïKóv
 Player::Player() {
 	X = 0;
 	Y = 0;
 	score = 0;
+	PlateHit = false;
 }
-int Player:: GetPX() {
+Player::~Player() {
+
+}
+
+void Player::PlateManegement() {
+	//DrawFormatString(200, 300, GetColor(255, 255, 255), "playerOb:%3d,", ob->X);
 	GetMousePoint(&X, &Y);
 	X = 0;
-	return X;
-};
-int Player::GetPY() {
-	GetMousePoint(&X, &Y);
-	if (Y > (SCREEN_SIZE_Y - ob.GetSizeY_Cube()))
-	{
-		Y = SCREEN_SIZE_Y - ob.GetSizeY_Cube();
+	if (Y < 0)Y = 0;//à⁄ìÆêßå¿(è„)
+	else if (Y > SCREEN_SIZE_Y-PLATE_SIZE_Y)Y = SCREEN_SIZE_Y-PLATE_SIZE_Y;//à⁄ìÆêßå¿(â∫)
+	int sizeX = PLATE_SIZE_X;
+	int sizeY = PLATE_SIZE_Y;
+		for (int i = 0;i < sizeX;++i) //ï`âÊ
+		{
+		for (int j = 0;j < sizeY;++j) {
+			if (X == SCREEN_SIZE_X) {
+				DrawPixel((X - sizeX) + i, Y + j, GetColor(255, 255, 255));
+			}
+			else {
+				DrawPixel(X + i, Y + j, GetColor(255, 255, 255));
+			}
+		}
 	}
-	if (Y < 0) {
-		Y = 0;
-	}
-	return Y;
-};
+}
 
 void Player::GetScore(int X,int Y) {
 	DrawFormatString(X, Y, GetColor(255, 255, 255), "Player:%3d",score);
+}
+int Player::GetY() {
+	return Y;
+}
+void Player::Play() {
+	PlateManegement();
+}
+void Player::ScoreAdd() {
+	score++;
 }

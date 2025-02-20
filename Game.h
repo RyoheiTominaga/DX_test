@@ -1,6 +1,6 @@
-#pragma once
-class Game {
-public:
-	Game();
-	void GamePlay();
-};
+//#pragma once
+//class Game {
+//public:
+//	Game();
+//	void GamePlay();
+//};
